@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+When a box is clicked, we mark it with X and O respectively. The marking starts with X
+and switches to O on the next click. We handle this switch with lastUsedLetter
+state in app.js. On every marking, we put the letter in the trackOfLetters array in accordance with it's box number which we handle with key state in app.js.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We initiate the array with 9 items at the begining so we can place the letters in
+their respective places.
 
-## Available Scripts
+trackOfLetters array initally looks like this: [0,1,2,3,4,5,6,7,8]
 
-In the project directory, you can run:
+Let's image this scenario:
+--> player 1 marks box number 2 with X (counting the box numbers horizontally )
+--> player 2 marks box number 5 with O
+--> player 1 marks box number 3 with X
+--> player 2 marks box number 7 with O
 
-### `npm start`
+in this case,trackOfLetters array would look like this: [0,X,X,3,O,5,O,7,8]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+during this, we control the array with checkWinner function to see if any letter
+lines-up in a winning order that is defined by winningIndexOrders array.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Let's continue the scenario and image that player 1 makes the winning move:
+--> player 1 marks box number 1 with X
 
-### `npm test`
+in this case box number 1, number 2 and number 3 is X and trackOfLetters array looks like this : [X,X,X,3,O,5,O,7,8]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Let's check if the order of letter X is satisfying any condition in winningIndexOrders
+array
 
-### `npm run build`
+const winningIndexOrders = [
+[0, 1, 2], <--------
+[3, 4, 5],
+[6, 7, 8],
+[0, 3, 6],
+[1, 4, 7],
+[2, 5, 8],
+[0, 4, 8],
+[2, 4, 6],
+];
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Indeed, indexes of letter X in the array are 0,1,2, so player 1 wins!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+if there is no winner even after all boxes are marked with letters, we declare no winner.
