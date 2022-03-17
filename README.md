@@ -13,7 +13,7 @@ their respective places.
 
 trackOfLetters array initally looks like this: [0,1,2,3,4,5,6,7,8]
 
-Let's image this scenario:
+Let's image this scenario:  
 --> player 1 marks box number 2 with X (counting the box numbers horizontally)   
 --> player 2 marks box number 5 with O   
 --> player 1 marks box number 3 with X   
