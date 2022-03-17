@@ -1,3 +1,9 @@
+## This is a simple Tic-Tac-Toe game,
+
+You can try it in the live site by clicking [here](https://pedantic-benz-58aefd.netlify.app/).
+
+### How does it work?
+
 When a box is clicked, we mark it with X and O respectively. The marking starts with X
 and switches to O on the next click. We handle this switch with lastUsedLetter
 state in app.js. On every marking, we put the letter in the trackOfLetters array in accordance with it's box number which we handle with key state in app.js.
@@ -26,6 +32,7 @@ in this case box number 1, number 2 and number 3 is X and trackOfLetters array l
 Let's check if the order of letter X is satisfying any condition in winningIndexOrders
 array
 
+```javascript
 const winningIndexOrders = [
 [0, 1, 2], <--------
 [3, 4, 5],
@@ -36,6 +43,7 @@ const winningIndexOrders = [
 [0, 4, 8],
 [2, 4, 6],
 ];
+```
 
 Indeed, indexes of letter X in the array are 0,1,2, so player 1 wins!
 
