@@ -24,7 +24,7 @@ in this case,trackOfLetters array would look like this: [0,X,X,3,O,5,O,7,8]
 during this, we control the array with checkWinner function to see if any letter
 lines-up in a winning order that is defined by winningIndexOrders array.
 
-Let's continue the scenario and image that player 1 makes the winning move:
+Let's continue the scenario and image that player 1 makes the winning move:  
 --> player 1 marks box number 1 with X
 
 in this case box number 1, number 2 and number 3 is X and trackOfLetters array looks like this : [X,X,X,3,O,5,O,7,8]
