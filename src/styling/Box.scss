@@ -1,0 +1,18 @@
+.Wrapper {
+  width: fit-content;
+  .Box {
+    min-width: 8rem;
+    min-height: 8rem;
+    margin-right: 1.5rem;
+    border: solid 1px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 11px 5px rgba(0, 0, 0, 0.58);
+    border-radius: 5px;
+    cursor: pointer;
+    h1 {
+      font-size: 5rem;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(224, 248, 192, 0.809);
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      .game--result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 2rem;
+        h4 {
+          font-size: 4rem;
+        }
+        i {
+          cursor: pointer;
+        }
+      }
+    }
+    .vertical--line {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+  }
+}
