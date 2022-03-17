@@ -7,7 +7,7 @@ const Box = (props) => {
   const { getLastUsedLetter, lastUsedLetter, setKeyFunc, indexOfBlock } = props;
 
   const letterFunc = () => {
-    //Setting the next letter while making sure letter can't changed be once it set
+    //Setting the next letter while making sure letter can't be changed  once it set
     if (letter === "") {
       lastUsedLetter === "X" ? setLetter("O") : setLetter("X");
     } else {
