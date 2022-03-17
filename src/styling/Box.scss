@@ -1,9 +1,16 @@
+@import "./mixins.scss";
+
 .Wrapper {
   width: fit-content;
   .Box {
     min-width: 8rem;
     min-height: 8rem;
     margin-right: 1.5rem;
+    & {
+      @include for-phone-only {
+        margin-right: 0.5rem;
+      }
+    }
     border: solid 1px gray;
     display: flex;
     justify-content: center;
