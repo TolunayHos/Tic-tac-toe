@@ -13,16 +13,17 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
 
   const getLastUsedLetter = (letter) => {
-    //Helps us use the next word
+    //Helps us use the next letter
     setLastUsedLetter(letter);
   };
 
   const setKeyFunc = (key) => {
+    //We keep track of which box we are dealing with
     setKey(key);
   };
 
   const winningIndexOrders = [
-    //If any letters match in this order, that latter wins
+    //If any letters match in this order, that letter wins
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -60,7 +61,7 @@ function App() {
       let copyOfTrackOfLetters = [...trackOfLetters];
       copyOfTrackOfLetters[key] = lastUsedLetter;
       setTrackOfLetters(copyOfTrackOfLetters);
-      //Checking if there's any winner after every input
+      //Checking if there's any winner after every marking
       checkWinner(copyOfTrackOfLetters);
     }
   }, [lastUsedLetter]);
